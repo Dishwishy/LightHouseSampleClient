@@ -15,7 +15,7 @@
 //SERVER TO USE GOES HERE - MAKE SURE THE SERVER CERTIFICATE IS TRUSTED!
 //NSString *url = @"https://giving.mapdemo.mocana.com/_trust/#";
 
-NSString *url = @"https://www.mocana.com/";
+NSString *url = @"https://charts-p1940926306trial.dispatcher.hanatrial.ondemand.com/";
 
 //Global Variables
 @synthesize mBrowser;
@@ -202,6 +202,8 @@ NSInteger authChallengeCount = 0;
     NSData *p12data = [NSData dataWithContentsOfFile:path];
     CFDataRef inP12data = (__bridge CFDataRef)p12data;
     **/
+    
+    
     
     //KCHAMP
     SecIdentityRef myIdentity = MAP_getUserIdentityCertificate();
