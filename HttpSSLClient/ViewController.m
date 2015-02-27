@@ -15,8 +15,8 @@
 //SERVER TO USE GOES HERE - MAKE SURE THE SERVER CERTIFICATE IS TRUSTED!
 //NSString *url = @"https://giving.mapdemo.mocana.com/_trust/#";
 
-NSString *url = @"https://charts-p1940926306trial.dispatcher.hanatrial.ondemand.com/";
-
+NSString *url;
+NSInteger urlShow = 0;
 //Global Variables
 @synthesize mBrowser;
 @synthesize progLabel;
@@ -26,6 +26,7 @@ NSNumber *payloadExpectedSize;
 float progress;
 NSMutableString *labelText;
 NSInteger authChallengeCount = 0;
+@synthesize urlBar;
 
 
 - (void)didReceiveMemoryWarning
@@ -39,11 +40,38 @@ NSInteger authChallengeCount = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //set the browser delegate as itself
+    mBrowser.delegate = self;
+    //tap gesture recognizer
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    tapGesture.delegate = self;
+    tapGesture.numberOfTapsRequired = 3;
+    [self.view addGestureRecognizer:tapGesture];
+
+    
+    //PLIST LOADING
+    NSString *plistContents = [[NSBundle mainBundle] pathForResource:@"urls" ofType:@"plist"];
+    NSDictionary *urlDict = [[NSDictionary alloc]initWithContentsOfFile:plistContents];
+    url = [urlDict objectForKey:@"webpage"];
+
+    if ( [urlDict objectForKey:@"webpage"] != @"" ){
+       self.urlBar.hidden = YES;
+       [self sendUrlRequest];
+        
+    }
+    
+    else{
+        NSLog(@"No Valid URL, waiting for input");
+        [self animateUrlBarIn];
+
+        
+    }
+
+    
 	// Do any additional setup after loading the view, typically from a nib.
     //a little fit and finish for hiding the status bar
     shouldHideStatusBar = YES;
-    //set the browser delegate as itself
-    mBrowser.delegate = self;
+
     //clear the old URL cache - not sure this is necesssary but just in case
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     //more cache killing - just in case there are leftovers from previous authentications to the site
@@ -62,25 +90,7 @@ NSInteger authChallengeCount = 0;
         }
     }
     **/
-    //Log that we are attempting to make our first connection.
-    NSLog(@"#################################");
-    NSLog(@"Sending a request async");
-    NSLog(@"\n");
-    
-    labelText = [NSMutableString stringWithFormat:@"INIT REQUEST"];
-    
-    progLabel.text = labelText;
-    
-    //create a request with the URL we defined at the top of the app
-    //and execute the request
-    NSURL *requestUrl = [[NSURL alloc] initWithString:url];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
-    
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
-    NSLog(@"#################################");
-    NSLog(@"Connection Start Was Called");
-    NSLog(@"\n");
+
     
 }
 
@@ -334,6 +344,78 @@ OSStatus extractIdentityAndTrust(CFDataRef inP12data, SecIdentityRef *identity, 
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    url = self.urlBar.text;
+    [self.urlBar resignFirstResponder];
+
+    return YES;
+}
+- (IBAction)urlBar:(id)sender {
+    
+    [self sendUrlRequest];
+    
+}
+
+
+- (void)sendUrlRequest {
+
+    
+    //Log that we are attempting to make our first connection.
+    NSLog(@"#################################");
+    NSLog(@"Sending a request async");
+    NSLog(@"\n");
+    
+    labelText = [NSMutableString stringWithFormat:@"INIT REQUEST"];
+    
+    progLabel.text = labelText;
+    
+    //create a request with the URL we defined at the top of the app
+    //and execute the request
+    NSURL *requestUrl = [[NSURL alloc] initWithString:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
+    
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+    NSLog(@"#################################");
+    NSLog(@"Connection Start Was Called");
+    NSLog(@"\n");
+    [self animateUrlBarOut];
+    self.urlBar.hidden = YES;
+}
+
+- (void)handleTapGesture:(UITapGestureRecognizer *)sender {
+    
+       if (sender.state == UIGestureRecognizerStateRecognized) {
+           
+        self.urlBar.hidden = NO;
+        [self animateUrlBarIn];
+                
+    }
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+
+    return YES;
+}
+
+- (void)animateUrlBarIn
+{
+    self.urlBar.hidden = NO;
+    [UIView beginAnimations:@"Animation" context:NULL];
+    // Assumes the your view is just off the bottom of the screen.
+    self.urlBar.frame = CGRectOffset(self.urlBar.frame, 0, -self.urlBar.frame.size.height);
+    [UIView commitAnimations];
+}
+
+- (void)animateUrlBarOut
+{
+    [UIView beginAnimations:@"Animation" context:NULL];
+    // Assumes the your view is just off the bottom of the screen.
+    self.urlBar.frame = CGRectOffset(self.urlBar.frame, 0, +self.urlBar.frame.size.height);
+    [UIView commitAnimations];
 }
 
 @end

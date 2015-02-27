@@ -10,7 +10,7 @@
 #import <Security/Security.h>
 #import <CoreFoundation/CoreFoundation.h>
 
-@interface ViewController : UIViewController <UIWebViewDelegate>{
+@interface ViewController : UIViewController <UIWebViewDelegate, UITextViewDelegate, UIGestureRecognizerDelegate>{
     BOOL shouldHideStatusBar;
 }
 
@@ -19,6 +19,7 @@
 //@property(nonatomic, retain) IBOutlet UITextField *url;
 @property (strong, nonatomic) IBOutlet UIWebView *mBrowser;
 @property (strong, nonatomic) IBOutlet UILabel *progLabel;
+@property (strong, nonatomic) IBOutlet UITextField *urlBar;
 
 
 - (void)connection:(NSURLConnection *) connection didReceiveResponse:(NSURLResponse *)response;
@@ -28,5 +29,11 @@
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace;
 
 OSStatus extractIdentityAndTrust(CFDataRef inP12data, SecIdentityRef *identity, SecTrustRef *trust);
+- (void)sendUrlRequest;
+
+- (void)handleTapGesture:(UITapGestureRecognizer *)sender;
+
+
+
 
 @end
