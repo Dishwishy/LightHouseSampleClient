@@ -3,7 +3,7 @@
 //  HttpClientTest
 //
 //  Created by Vanja Komadinovic on 10/19/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Updated by Kyle Champlin on 12/01/14
 //
 
 #import "ViewController.h"

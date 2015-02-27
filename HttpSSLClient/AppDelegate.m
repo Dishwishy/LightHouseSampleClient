@@ -3,7 +3,7 @@
 //  HttpSSLClient
 //
 //  Created by Vanja Komadinovic on 10/16/11.
-//  Copyright (c) 2011 BusyWait. All rights reserved.
+//  CUpdated by Kyle Champlin on 12/01/14
 //
 
 #import "AppDelegate.h"
