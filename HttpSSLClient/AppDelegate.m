@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LightHouseUrlProtocol.h"
 
 @implementation AppDelegate
 
@@ -49,6 +50,14 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [NSURLProtocol registerClass:[LightHouseUrlProtocol class]];
+    
+    return YES;
+
 }
 
 @end

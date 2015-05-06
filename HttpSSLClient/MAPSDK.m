@@ -16,7 +16,7 @@
 //when testing the application with an embedded certificate (part of the
 //application bundle
 
-static NSString * const kCertificateFileName      = @"sample";
+static NSString * const kCertificateFileName      = @"kchamplin-ejbca";
 static NSString * const kCertificateFileExtension = @"p12";
 static NSString * const kCertificatePassword      = @"abcd1234";
 static NSString * const kUsername                 = @"sam-account-name";

@@ -10,8 +10,11 @@
 #import <Security/Security.h>
 #import <CoreFoundation/CoreFoundation.h>
 
-@interface ViewController : UIViewController <UIWebViewDelegate, UITextViewDelegate, UIGestureRecognizerDelegate>{
+@interface ViewController : UIViewController <UIWebViewDelegate, UITextViewDelegate, UIGestureRecognizerDelegate, NSURLConnectionDelegate>{
     BOOL shouldHideStatusBar;
+    BOOL isDone;
+    NSURLConnection *connection;
+    NSURLRequest *req;
 }
 
 //@property(nonatomic, retain) IBOutlet UILabel *status;
@@ -22,13 +25,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *urlBar;
 
 
-- (void)connection:(NSURLConnection *) connection didReceiveResponse:(NSURLResponse *)response;
-- (void)connection:(NSURLConnection *) connection didReceiveData:(NSData *)data;
-- (void)connection:(NSURLConnection *) connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
-- (void)connection:(NSURLConnection *) connection didFailWithError:(NSError *)error;
-- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace;
 
-OSStatus extractIdentityAndTrust(CFDataRef inP12data, SecIdentityRef *identity, SecTrustRef *trust);
 - (void)sendUrlRequest;
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender;

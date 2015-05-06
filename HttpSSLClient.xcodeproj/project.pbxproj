@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A128FC001AFA811700AE1BF7 /* LightHouseUrlProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = A128FBFF1AFA811700AE1BF7 /* LightHouseUrlProtocol.m */; };
 		A141A8B81A9BEFC40088D010 /* urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = A141A8B71A9BEFC40088D010 /* urls.plist */; };
 		A162EA921A338B3400616DD9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A162EA911A338B3400616DD9 /* Media.xcassets */; };
 		A17CEA811A315ED800C09E4D /* MAPSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = A17CEA801A315ED800C09E4D /* MAPSDK.m */; };
 		A1AC9D2C1AA0D547001FF760 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AC9D2B1AA0D547001FF760 /* CoreGraphics.framework */; };
-		A1F4A3E61A74761900883EF3 /* sample.p12 in Resources */ = {isa = PBXBuildFile; fileRef = A1F4A3E51A74761900883EF3 /* sample.p12 */; };
 		A52AF467144B79D400F048A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52AF466144B79D400F048A9 /* UIKit.framework */; };
 		A52AF469144B79D400F048A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52AF468144B79D400F048A9 /* Foundation.framework */; };
 		A52AF46F144B79D400F048A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52AF46D144B79D400F048A9 /* InfoPlist.strings */; };
@@ -23,12 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A128FBFE1AFA811700AE1BF7 /* LightHouseUrlProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightHouseUrlProtocol.h; sourceTree = "<group>"; };
+		A128FBFF1AFA811700AE1BF7 /* LightHouseUrlProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightHouseUrlProtocol.m; sourceTree = "<group>"; };
 		A141A8B71A9BEFC40088D010 /* urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = urls.plist; path = HttpSSLClient/urls.plist; sourceTree = "<group>"; };
 		A162EA911A338B3400616DD9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		A17CEA7F1A315ED800C09E4D /* MAPSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAPSDK.h; sourceTree = "<group>"; };
 		A17CEA801A315ED800C09E4D /* MAPSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAPSDK.m; sourceTree = "<group>"; };
 		A1AC9D2B1AA0D547001FF760 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A1F4A3E51A74761900883EF3 /* sample.p12 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.p12; sourceTree = "<group>"; };
+		A1BD18161AA50C580047439A /* kchamplin_ejbca.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = kchamplin_ejbca.p12; path = ../kchamplin_ejbca.p12; sourceTree = "<group>"; };
 		A52AF462144B79D400F048A9 /* HttpSSLClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HttpSSLClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52AF466144B79D400F048A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A52AF468144B79D400F048A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				A141A8B71A9BEFC40088D010 /* urls.plist */,
-				A1F4A3E51A74761900883EF3 /* sample.p12 */,
 				A162EA911A338B3400616DD9 /* Media.xcassets */,
 				A52AF46A144B79D400F048A9 /* HttpSSLClient */,
 				A52AF465144B79D400F048A9 /* Frameworks */,
@@ -93,6 +94,7 @@
 		A52AF46A144B79D400F048A9 /* HttpSSLClient */ = {
 			isa = PBXGroup;
 			children = (
+				A1BD18161AA50C580047439A /* kchamplin_ejbca.p12 */,
 				A17CEA7F1A315ED800C09E4D /* MAPSDK.h */,
 				A17CEA801A315ED800C09E4D /* MAPSDK.m */,
 				A52AF473144B79D400F048A9 /* AppDelegate.h */,
@@ -101,6 +103,8 @@
 				A52AF479144B79D400F048A9 /* ViewController.h */,
 				A52AF47A144B79D400F048A9 /* ViewController.m */,
 				A52AF46B144B79D400F048A9 /* Supporting Files */,
+				A128FBFE1AFA811700AE1BF7 /* LightHouseUrlProtocol.h */,
+				A128FBFF1AFA811700AE1BF7 /* LightHouseUrlProtocol.m */,
 			);
 			path = HttpSSLClient;
 			sourceTree = "<group>";
@@ -144,6 +148,15 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = BusyWait;
+				TargetAttributes = {
+					A52AF461144B79D400F048A9 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = A52AF45C144B79D400F048A9 /* Build configuration list for PBXProject "HttpSSLClient" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -169,7 +182,6 @@
 			files = (
 				A52AF46F144B79D400F048A9 /* InfoPlist.strings in Resources */,
 				A141A8B81A9BEFC40088D010 /* urls.plist in Resources */,
-				A1F4A3E61A74761900883EF3 /* sample.p12 in Resources */,
 				A52AF478144B79D400F048A9 /* MainStoryboard.storyboard in Resources */,
 				A162EA921A338B3400616DD9 /* Media.xcassets in Resources */,
 			);
@@ -186,6 +198,7 @@
 				A52AF475144B79D400F048A9 /* AppDelegate.m in Sources */,
 				A52AF47B144B79D400F048A9 /* ViewController.m in Sources */,
 				A17CEA811A315ED800C09E4D /* MAPSDK.m in Sources */,
+				A128FC001AFA811700AE1BF7 /* LightHouseUrlProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +259,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -266,6 +280,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HttpSSLClient/HttpSSLClient-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				"GCC_PREPROCESSOR_DEFINITIONS[sdk=iphonesimulator*]" = "$(inherited)";
 				INFOPLIST_FILE = "HttpSSLClient/HttpSSLClient-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -282,6 +298,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HttpSSLClient/HttpSSLClient-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = "HttpSSLClient/HttpSSLClient-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
